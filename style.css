@@ -8,6 +8,9 @@ body{
   display:flex;
   flex-direction:column;
 }
+  .container{
+    font-size:10px;
+  }
 }
   
 .container{
