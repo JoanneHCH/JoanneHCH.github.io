@@ -1,30 +1,51 @@
-var button = document.getElementById("create");
-var input = document.getElementById("input");
-var list = document.getElementById("list");
+// Get the modal
+var modal = document.getElementById("myModal");
 
-var todolist = JSON.parse(localStorage.getItem("listItems")) || [];
-render();
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-function addData () {
-  if (input.value !="") {
-    todolist.push(input.value);
-    input.value = "";
-    render();
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
 
-function delData (i) {
-  todolist.splice(i, 1);
-  
-  render();
+// Get the modal
+var Modal = document.getElementById("mymodal");
+
+// Get the button that opens the modal
+var Btn = document.getElementById("mybtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[1];
+
+// When the user clicks on the button, open the modal
+Btn.onclick = function() {
+  Modal.style.display = "block";
 }
 
-function render() {
-  localStorage.setItem("listItems", JSON.stringify(todolist));
-  var content = "";
-  for(var i = 0; i < todolist.length; i++) {
-    content = content + `<div><button class='delete' onclick='delData(${i})'>刪除</button>` + todolist[i] + "</div>";
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  Modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == Modal) {
+    Modal.style.display = "none";
   }
-  
-  list.innerHTML = content;
 }
